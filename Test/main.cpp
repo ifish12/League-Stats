@@ -29,21 +29,6 @@ size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
     return size*nmemb; //tell curl how many bytes we handled
 }
 
-void test_regex_search(const std::string& input)
-{
-    std::regex rx("[0-9][0-9][0-9][0-9][0-9]*,");
-    std::smatch match;
-    
-    if (std::regex_search(input.begin(), input.end(), match, rx))
-    {
-        string SummonerID = match.str();
-        SummonerID.erase (SummonerID.begin()+8);
-        cout << "SummonerID = " << SummonerID << '\n';
-       
-    }
-    else
-        std::cout << "No match\n";
-}
 
 
 int main()
@@ -78,7 +63,6 @@ int main()
     curl_easy_perform(curl);
     
     cout << endl << data << endl;
-    //test_regex_search(data);
     
     // Let's parse it
     Json::Value root;
