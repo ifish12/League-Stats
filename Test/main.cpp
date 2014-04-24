@@ -15,8 +15,10 @@
 
 using namespace std;
 
+CURL* curl; //our curl object
 Json::Value root;
 Json::Reader reader;
+string sID;
 string data; //will hold the url's contents
 char name[25] = "";
 
@@ -34,8 +36,28 @@ size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
 
 void GetMatchHistory()
 {
-    cout << "This is a stub for GetMatchHistory()" << endl;
+    char mURL1[100] = "https://prod.api.pvp.net/api/lol/na/v1.3/game/by-summoner/";
+    char rURL2[100];
+    strcpy(rURL2, root["id"].asCString());
+    char rURL3[100] = "/recent?api_key=";
+    char rURL4[100] = API_KEY;
+    char rmURL[400];
     
+    strcat(rmURL, mURL1);
+    strcat(rmURL, rURL2);
+    strcat(rmURL, rURL3);
+    strcat(rmURL, rURL4);
+    
+    curl_easy_setopt(curl, CURLOPT_URL, rmURL );
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &writeCallback);
+    // curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); //tell curl to output its progress
+    curl_easy_perform(curl);
+    
+    bool parsedSuccess = reader.parse(data, root, false);
+    cout << root.toStyledString() << endl;
+    
+    
+
 }
 
 void GetCurrentRankedLeague()
@@ -84,12 +106,10 @@ int main()
     cout << fURL << endl;
     
     
-    CURL* curl; //our curl object
-    
     curl_global_init(CURL_GLOBAL_ALL); //pretty obvious
     curl = curl_easy_init();
     
-    curl_easy_setopt(curl, CURLOPT_URL, fURL );
+    curl_easy_setopt(curl, CURLOPT_URL,fURL);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &writeCallback);
     // curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); //tell curl to output its progress
     
@@ -102,6 +122,7 @@ int main()
     bool parsedSuccess = reader.parse(data, root, false);
     root = root[root.getMemberNames()[0]];
     cout << root["id"];
+    data = "";
     DisplayMenu();
     cin.get();
     
