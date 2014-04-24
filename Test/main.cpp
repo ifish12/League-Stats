@@ -15,10 +15,13 @@
 
 using namespace std;
 
+Json::Value root;
+Json::Reader reader;
 string data; //will hold the url's contents
+char name[25] = "";
 
 size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
-{ //callback must have this declaration
+{   //callback must have this declaration
     //buf is a pointer to the data that curl has for us
     //size*nmemb is the size of the buffer
     
@@ -29,17 +32,47 @@ size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
     return size*nmemb; //tell curl how many bytes we handled
 }
 
+void GetMatchHistory()
+{
+    cout << "This is a stub for GetMatchHistory()" << endl;
+    
+}
+
+void GetCurrentRankedLeague()
+{
+    cout << "This is a stub for GetCurrentRankedLeague()" << endl;
+}
+
+
+void DisplayMenu()
+{
+    cout << "Hello Summoner! What would you like to check up for " << name << "?" << endl;
+    cout << "1: Match history" << endl;
+    cout << "2: Current ranked League" << endl;
+    cout << "3: Nothing I want to leave" << endl;
+    int choice = NULL;
+    cin >> choice;
+    switch (choice) {
+        case 1:
+            GetMatchHistory();
+            break;
+        case 2:
+            GetCurrentRankedLeague();
+            break;
+            
+        default:
+            break;
+    }
+}
 
 
 int main()
 {
-    char name[25] = "";
-    smatch match;
     
     char dURL1[100] = "https://prod.api.pvp.net/api/lol/na/v1.4/summoner/by-name/";
     char dURL2[100] = "?api_key=";
     char dURL3[100] = API_KEY;
-    cout << "What is your summoner name?" << endl;
+    cout << "Which summoner do you wish to lookup?" << endl;
     cin >> name;
     
     char fURL[225];
@@ -58,19 +91,21 @@ int main()
     
     curl_easy_setopt(curl, CURLOPT_URL, fURL );
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &writeCallback);
-    curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); //tell curl to output its progress
+    // curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); //tell curl to output its progress
     
     curl_easy_perform(curl);
     
     cout << endl << data << endl;
     
     // Let's parse it
-    Json::Value root;
-    Json::Reader reader;
+
     bool parsedSuccess = reader.parse(data, root, false);
     root = root[root.getMemberNames()[0]];
     cout << root["id"];
+    DisplayMenu();
     cin.get();
+    
+    
     
     
     curl_easy_cleanup(curl);
