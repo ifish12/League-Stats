@@ -8,7 +8,6 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <regex>
 #include <curl/curl.h>
 #include "json/json.h"
 #include "key.h"
