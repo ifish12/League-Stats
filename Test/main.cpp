@@ -57,9 +57,8 @@ void GetMatchHistory()
     curl_easy_perform(curl);
     
     bool parsedSuccess = reader.parse(data, root, false);
-    cout << root.toStyledString() << endl;
-    
-    
+    cout << root["games"][2]["fellowPlayers"][2]; // The number here is static for now but it will output that specific game from the JSON Riot gives us.
+    // TODO: Implement a nice way to get the individual values and display them
 
 }
 
