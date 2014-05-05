@@ -36,21 +36,25 @@ size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
 
 void GetMatchHistory()
 {
+    
     char mURL1[100] = "https://prod.api.pvp.net/api/lol/na/v1.3/game/by-summoner/";
+    int rURL2i = root["id"].asInt();
     char rURL2[100];
-    strcpy(rURL2, root["id"].asCString());
+    snprintf(rURL2, 100, "%d", rURL2i);
     char rURL3[100] = "/recent?api_key=";
     char rURL4[100] = API_KEY;
-    char rmURL[400];
+    char rmURL[400] = {};
     
     strcat(rmURL, mURL1);
     strcat(rmURL, rURL2);
     strcat(rmURL, rURL3);
     strcat(rmURL, rURL4);
     
+    cout << rmURL << endl;
+    
     curl_easy_setopt(curl, CURLOPT_URL, rmURL );
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &writeCallback);
-    // curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); //tell curl to output its progress
+
     curl_easy_perform(curl);
     
     bool parsedSuccess = reader.parse(data, root, false);
@@ -122,6 +126,7 @@ int main()
     bool parsedSuccess = reader.parse(data, root, false);
     root = root[root.getMemberNames()[0]];
     cout << root["id"];
+
     data = "";
     DisplayMenu();
     cin.get();
