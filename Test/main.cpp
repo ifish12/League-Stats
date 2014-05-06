@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <curl/curl.h>
+#include <curl/curl.h> // doesn't work in windows, consider moving to boost or some other library in the future
 #include "json/json.h"
 #include "key.h"
 
