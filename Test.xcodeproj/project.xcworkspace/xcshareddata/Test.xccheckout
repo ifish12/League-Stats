@@ -10,31 +10,31 @@
 	<string>Test</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E2E890BE-3A94-46C1-9F1A-8ECEBB76EE6C</key>
+		<key>D9600AD6C121CB151E6244FFC304663A204C2BCF</key>
 		<string>https://github.com/ifish12/League-Stats.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Test.xcodeproj/project.xcworkspace</string>
+	<string>Test.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E2E890BE-3A94-46C1-9F1A-8ECEBB76EE6C</key>
+		<key>D9600AD6C121CB151E6244FFC304663A204C2BCF</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ifish12/League-Stats.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E2E890BE-3A94-46C1-9F1A-8ECEBB76EE6C</string>
+	<string>D9600AD6C121CB151E6244FFC304663A204C2BCF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E2E890BE-3A94-46C1-9F1A-8ECEBB76EE6C</string>
+			<string>D9600AD6C121CB151E6244FFC304663A204C2BCF</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Riot</string>
+			<string>League-Stats</string>
 		</dict>
 	</array>
 </dict>

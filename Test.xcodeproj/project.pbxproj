@@ -26,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04DA41D51A68F8C1009995A5 /* key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = key.h; path = ../key.h; sourceTree = "<group>"; };
 		6C1D440B18FCAC0300885385 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		6C1D440D18FCB19800885385 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		6C60421818FEE50C008EAC42 /* libjson_linux-gcc-4.2.1_libmt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson_linux-gcc-4.2.1_libmt.a"; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		6C88232018FED95300A545EA /* reader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
 		6C88232118FED95300A545EA /* value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
 		6C88232218FED95300A545EA /* writer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
-		6CCE0DCE19078A620027522B /* key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = key.h; sourceTree = "<group>"; };
 		6CE4A91218FCA047009D8C6C /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE4A91518FCA047009D8C6C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,9 +93,9 @@
 		6CE4A91418FCA047009D8C6C /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				04DA41D51A68F8C1009995A5 /* key.h */,
 				6C88231A18FED95300A545EA /* json */,
 				6CE4A91518FCA047009D8C6C /* main.cpp */,
-				6CCE0DCE19078A620027522B /* key.h */,
 			);
 			path = Test;
 			sourceTree = "<group>";
