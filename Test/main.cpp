@@ -36,7 +36,7 @@ size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
 void GetMatchHistory()
 {
     
-    char mURL1[100] = "https://prod.api.pvp.net/api/lol/na/v1.3/game/by-summoner/";
+    char mURL1[100] = "https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/";
     int rURL2i = root["id"].asInt();
     char rURL2[100];
     snprintf(rURL2, 100, "%d", rURL2i);
